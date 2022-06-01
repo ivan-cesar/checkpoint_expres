@@ -29,13 +29,21 @@ app.get('/', function(req, res) {
 
 // service page
 app.get('/service', function(req, res) {
-    
+    if(((jour != 0) || (jour != 6)) && ((heure < 9) || (heure >= 17))){
+        res.render('pages/404');
+    }else{
     res.render('pages/service');
+    }
 });
 
 // contact page
 app.get('/contact', function(req, res) {
+    if(((jour != 0) || (jour != 6)) && ((heure < 9) || (heure >= 17))){
+        res.render('pages/404');
+    }else{
     res.render('pages/contact');
+     
+    }
 });
 
 app.listen(8080);
